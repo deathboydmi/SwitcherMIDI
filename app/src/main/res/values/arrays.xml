@@ -1,0 +1,6 @@
+<resources>
+    <string-array name="switcherTypes">
+        <item>Two pedals</item>
+        <item>One pedal</item>
+    </string-array>
+</resources>
