@@ -11,8 +11,8 @@ Tested with AmpliTube 5.
 
 ## Screenshots
 
-![screenshot](screenshots/launch_screen.jpg)
-![screenshot](screenshots/launch_screen_variants.jpg)
-![screenshot](screenshots/two_pedals.jpg)
-![screenshot](screenshots/one_pedal_next.jpg)
-![screenshot](screenshots/one_pedal_previous.jpg)
+<!-- ![screenshot](screenshots/launch_screen.jpg) -->
+<img src="screenshots/launch_screen.jpg" width="120">
+<img src="screenshots/two_pedals.jpg" width="120">
+<img src="screenshots/one_pedal_next.jpg" width="120">
+
