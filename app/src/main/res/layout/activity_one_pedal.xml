@@ -13,10 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:text="@string/buttonNextText"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@id/ProgramPicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <NumberPicker
         android:id="@+id/ProgramPicker"
@@ -26,6 +28,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        ></NumberPicker>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,92 +7,53 @@
     android:keepScreenOn="true"
     tools:context=".EntryActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="222dp"
+        android:layout_height="233dp"
+        app:layout_constraintBottom_toTopOf="@id/deviceSpinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/round_bento_24"
+        />
 
-
-    <LinearLayout
-        android:id="@+id/deviceGroup"
+    <Spinner
+        android:id="@+id/deviceSpinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
 
-        android:layout_marginBottom="16dp"
+        android:spinnerMode="dialog"
+        android:prompt="@string/deviceStr"
 
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintBottom_toTopOf="@id/switcherGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        >
-        <TextView
-            android:id="@+id/deviceSpinnerTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Device:"
-            android:textSize="18sp"
-            android:layout_marginEnd="8dp"
 
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/deviceSpinner"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+        android:layout_marginBottom="16dp"
+        />
 
-        <Spinner
-            android:id="@+id/deviceSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/deviceSpinnerTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-    </LinearLayout>
-
-    <LinearLayout
+    <RadioGroup
         android:id="@+id/switcherGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-
-        android:layout_marginBottom="18sp"
-
-        app:layout_constraintTop_toBottomOf="@id/deviceGroup"
-        app:layout_constraintBottom_toTopOf="@id/nextActivityButton"
+        app:layout_constraintBottom_toTopOf="@+id/nextActivityButton"
+        app:layout_constraintTop_toBottomOf="@+id/deviceSpinner"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
 
-        >
-        <TextView
-            android:id="@+id/switcherTypeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Switcher:"
-            android:textSize="18sp"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/switcherTypeSpinner"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
-
-        <Spinner
-            android:id="@+id/switcherTypeSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/switcherTypeTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
-    </LinearLayout>
+        android:layout_marginBottom="16dp"
+        />
 
     <Button
         android:id="@+id/nextActivityButton"
         android:text="Next"
+        android:textSize="18sp"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

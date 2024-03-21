@@ -1,14 +1,14 @@
 package com.example.switchermidi
 
-import android.R.attr.value
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import com.example.SwitcherMIDI.MIDIProgramController
 import com.example.switchermidi.databinding.ActivityOnePedalBinding
 
 
 class OnePedalActivity : AppCompatActivity() {
+//    TODO("Create base activity for pedals")
+
     private lateinit var binding: ActivityOnePedalBinding
     private lateinit var mMidiProgramController: MIDIProgramController
 

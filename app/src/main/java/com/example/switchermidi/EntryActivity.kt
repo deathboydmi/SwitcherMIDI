@@ -6,12 +6,15 @@ import android.media.midi.MidiDeviceInfo
 import android.media.midi.MidiManager
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
-import android.widget.Spinner
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.SwitcherMIDI.MIDIProgramController
+import com.example.switchermidi.MIDIProgramController
 import com.example.switchermidi.databinding.ActivityEntryBinding
 
 
@@ -23,24 +26,31 @@ class EntryActivity : AppCompatActivity() {
         binding = ActivityEntryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val switcherSpinner: Spinner = binding.switcherTypeSpinner
-        ArrayAdapter.createFromResource(
-            this,
-            R.array.switcherTypes,
-            android.R.layout.simple_spinner_item
-        ).also {adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            switcherSpinner.adapter = adapter
+        var switcherRadioGroup : RadioGroup = binding.switcherGroup
+        val nextActivities: Array<String> = resources.getStringArray(R.array.switcherTypes)
+        for (nextActivity in nextActivities) {
+            val newButton : RadioButton = RadioButton(this)
+            newButton.layoutParams = RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            newButton.text = nextActivity
+            newButton.textSize = 18f
+            switcherRadioGroup.addView(newButton)
         }
+        // + 1 (0 is textView)
+        val firstRadioButton = switcherRadioGroup.getChildAt(0 + 1)
+        switcherRadioGroup.check(firstRadioButton.id)
 
         val nextActivity:Button = binding.nextActivityButton
-
         if (!packageManager.hasSystemFeature(PackageManager.FEATURE_MIDI)) {
             nextActivity.setOnClickListener {
                 Toast.makeText(this, "MIDI feature is not supported.", Toast.LENGTH_LONG).show()
             }
             return
         }
+
+//        TODO("Set device listener")
 
         Log.d("MIDI", "Has MIDI feature")
 
@@ -57,16 +67,18 @@ class EntryActivity : AppCompatActivity() {
         val devicesSpinner = binding.deviceSpinner
         ArrayAdapter<String>(
             this,
-            android.R.layout.simple_spinner_item,
+            R.layout.spinner_item,
             deviceInfos.map() { x -> x.properties.getString(MidiDeviceInfo.PROPERTY_NAME)!! }
         ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            adapter.setDropDownViewResource(R.layout.spinner_dropdown_item)
             devicesSpinner.adapter = adapter
         }
 
         nextActivity.setOnClickListener {
-            val nextActivities: Array<String> = resources.getStringArray(R.array.switcherTypes)
-            val intent = when (switcherSpinner.selectedItem.toString()) {
+            val radioButton : RadioButton? = switcherRadioGroup.findViewById(
+                    switcherRadioGroup.checkedRadioButtonId
+            )
+            val intent = when ( radioButton?.text) {
                 nextActivities[0] -> Intent(this, TwoPedalsActivity::class.java)
                 nextActivities[1] -> Intent(this, OnePedalActivity::class.java)
                 else -> Intent(this, TwoPedalsActivity::class.java)

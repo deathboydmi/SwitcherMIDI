@@ -18,7 +18,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/buttonNext"
 
-        android:text="@string/buttonPreviousText" />
+        android:text="@string/buttonPreviousText"
+        android:textSize="18sp"
+        />
 
     <Button
         android:id="@+id/buttonNext"
@@ -31,7 +33,9 @@
         app:layout_constraintStart_toEndOf="@id/buttonPrevious"
         app:layout_constraintEnd_toEndOf="parent"
 
-        android:text="@string/buttonNextText" />
+        android:text="@string/buttonNextText"
+        android:textSize="18sp"
+        />
 
     <NumberPicker
         android:id="@+id/ProgramPicker"
@@ -41,6 +45,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        ></NumberPicker>
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

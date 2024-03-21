@@ -1,4 +1,4 @@
-package com.example.SwitcherMIDI
+package com.example.switchermidi
 
 import org.junit.Test
 

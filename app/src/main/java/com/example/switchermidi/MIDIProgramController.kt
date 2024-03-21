@@ -1,15 +1,11 @@
-package com.example.SwitcherMIDI
+package com.example.switchermidi
 
 import android.media.midi.MidiDevice
 import android.media.midi.MidiDeviceInfo
 import android.media.midi.MidiInputPort
 import android.media.midi.MidiManager
 import android.os.ConditionVariable
-import android.os.Handler
-import android.os.Looper
-import android.os.Message
 import android.util.Log
-import java.io.Closeable
 
 
 class MIDIProgramController(private val mManager: MidiManager, deviceCount: Int) {
@@ -31,13 +27,13 @@ class MIDIProgramController(private val mManager: MidiManager, deviceCount: Int)
         var cv = ConditionVariable()
         mManager.openDevice(targetMidiDeviceInfo, { midiDevice ->
             if (midiDevice == null) {
-                Log.e("MIDI", "Could not open $targetMidiDeviceInfo.")
+                Log.d("MIDI", "Could not open $targetMidiDeviceInfo.")
                 return@openDevice
             }
             mDevice = midiDevice
             mInputPort = mDevice?.openInputPort(0)
             if (mInputPort == null) {
-                Log.e("MIDI", "Could not open input port #0.")
+                Log.d("MIDI", "Could not open input port #0.")
                 return@openDevice
             }
             cv.open()
@@ -107,7 +103,11 @@ class MIDIProgramController(private val mManager: MidiManager, deviceCount: Int)
             }
 
         public fun destroy() {
-            instance = synchronized(this) { null }
+            Log.d("MIDI", "On destroy.")
+            instance = synchronized(this) {
+                instance?.close()
+                null
+            }
         }
     }
 }

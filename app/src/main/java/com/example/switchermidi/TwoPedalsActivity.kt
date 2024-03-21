@@ -1,15 +1,13 @@
 package com.example.switchermidi
 
-import android.media.midi.MidiDeviceInfo
-import android.media.midi.MidiManager
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.example.SwitcherMIDI.MIDIProgramController
 import com.example.switchermidi.databinding.ActivityTwoPedalsBinding
 
 
 class TwoPedalsActivity : AppCompatActivity() {
+//    TODO("Create base activity for pedals")
+
     private lateinit var binding: ActivityTwoPedalsBinding
     private lateinit var mMidiProgramController: MIDIProgramController
 

@@ -2,15 +2,5 @@
     <string name="app_name">SwitcherMIDI</string>
     <string name="buttonPreviousText">Previous</string>
     <string name="buttonNextText">Next</string>
-    <string name="program0Text" translatable="false">0</string>
-    <string name="program1Text" translatable="false">1</string>
-    <string name="program2Text" translatable="false">2</string>
-    <string name="program3Text" translatable="false">3</string>
-    <string name="program4Text" translatable="false">4</string>
-    <string name="program5Text" translatable="false">5</string>
-    <string name="program6Text" translatable="false">6</string>
-    <string name="program7Text" translatable="false">7</string>
-    <string name="program8Text" translatable="false">8</string>
-    <string name="program9Text" translatable="false">9</string>
-    <string name="program10Text" translatable="false">10</string>
+    <string name="deviceStr">Device:</string>
 </resources>
