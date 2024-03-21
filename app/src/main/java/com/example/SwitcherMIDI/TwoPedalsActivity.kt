@@ -32,10 +32,12 @@ class TwoPedalsActivity : AppCompatActivity() {
 
         binding.buttonNext.setOnClickListener {
             mMidiProgramController.changeProgramUp()
+            programPicker.value += 1
         }
 
         binding.buttonPrevious.setOnClickListener {
             mMidiProgramController.changeProgramDown()
+            programPicker.value -= 1
         }
     }
 }
